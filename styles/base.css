@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -9,9 +9,9 @@
 }
 
 :root{
-    --primary-color: #072ac8;
+    --primary-color: #3A5DF8;
     --secondary-color: #FFC30F;
 
-    --bg-light-carousell: #627DF9;
-    --bg-dark-carousell: #041976;
+    --bg-light: #627DF9;
+    --bg-dark: #041976;
 }

@@ -39,9 +39,13 @@ section.carousell{
   height: 500px;
 
   div{
+    display: flex;
+    flex-direction: column;
     width: 33.334%;
     height: 100%;
     transition: width ease-in-out .3s ;
+    justify-content: center;
+   
   }
 
   div:hover{
@@ -50,7 +54,7 @@ section.carousell{
 }
 
 div.first-page{
-  background: var(--bg-light-carousell);
+  background: var(--bg-light);
 }
 
 div.second-page{
@@ -58,5 +62,5 @@ div.second-page{
 }
 
 div.third-page{
-  background: var(--bg-dark-carousell);
+  background: var(--bg-dark);
 }
