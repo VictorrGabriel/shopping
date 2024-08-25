@@ -1,0 +1,62 @@
+@charset "UTF-8";
+@import url(./base.css);
+
+body{
+  font-family: "Montserrat", sans-serif;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: #fff;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+  
+}
+
+nav{
+  ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+section.carousell{
+  display: flex;
+  flex-direction: row;
+  height: 500px;
+
+  div{
+    width: 33.334%;
+    height: 100%;
+    transition: width ease-in-out .3s ;
+  }
+
+  div:hover{
+    width: 45%;
+  }
+}
+
+div.first-page{
+  background: var(--bg-light-carousell);
+}
+
+div.second-page{
+  background: var(--primary-color);
+}
+
+div.third-page{
+  background: var(--bg-dark-carousell);
+}
