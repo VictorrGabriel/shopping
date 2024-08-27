@@ -92,13 +92,28 @@ function createTableBody(itemName, itemAmount) {
   tdAmountElement.setAttribute("class", "col-amount");
   tdNemeElement.innerText = itemName;
   tdAmountElement.innerText = itemAmount;
-  tdEditOptions.innerHTML = `<span class='delete material-symbols-outlined' onclick=''>delete</span> <span class='edit material-symbols-outlined'>edit</span>`;
 
-  tdEditOptions.onclick = function(event){
+  const spanDeleteElement = document.createElement("span");
+  const spanEditElement = document.createElement("span");
+
+  const classGIcons = "material-symbols-outlined";
+
+  spanDeleteElement.classList.add(classGIcons);
+  spanEditElement.classList.add(classGIcons);
+  spanDeleteElement.classList.add("delete");
+  spanEditElement.classList.add("edit");
+
+  spanDeleteElement.innerText = "delete";
+  spanEditElement.innerText = "edit";
+
+  tdEditOptions.appendChild(spanDeleteElement);
+  tdEditOptions.appendChild(spanEditElement);
+
+  spanDeleteElement.onclick = function (event) {
     const deleteElementParent = event.target.parentElement.parentElement;
 
     deleteElementParent.remove();
-  }
+  };
 
   if (tableElement.contains(document.querySelector("tfoot"))) {
     calculateTotalAmount();
