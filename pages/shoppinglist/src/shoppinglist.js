@@ -110,14 +110,70 @@ function createTableBody(itemName, itemAmount) {
   tdEditOptions.appendChild(spanEditElement);
 
   spanDeleteElement.onclick = function (event) {
-    const deleteElementParent = event.target.parentElement.parentElement;
+    const deleteElementGrandParent = event.target.parentElement.parentElement;
 
-    deleteElementParent.remove();
+    deleteElementGrandParent.remove();
+  };
+
+  spanEditElement.onclick = function (event) {
+    if(spanEditElement.style.color === "red"){
+      spanEditElement.style.color = "black";
+      return;
+    }
+    const editElementGrandParent = event.target.parentElement.parentElement;
+    spanEditElement.style.color = "red";
+    editList(editElementGrandParent);
   };
 
   if (tableElement.contains(document.querySelector("tfoot"))) {
     calculateTotalAmount();
   }
+}
+
+function editList(row) {
+  const itemName = row.children[0];
+  const itemAmount = row.children[1];
+
+  itemName.onclick = function (event) {
+    
+
+
+    const editIcon = row.children[2].children[1];
+    if(editIcon.style.color === "red"){
+
+      const target = itemName;
+  
+      const originalText = target.innerText;
+  
+      const inputElement = document.createElement("input");
+      inputElement.type = "text";
+      inputElement.value = originalText;
+  
+      target.innerHTML = "";
+      target.appendChild(inputElement);
+  
+      inputElement.focus();
+  
+      inputElement.addEventListener("blur", function () {
+        saveEdit();
+      });
+  
+      inputElement.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+          saveEdit();
+        }
+      });
+  
+  
+      function saveEdit() {
+        const newValue = inputElement.value;
+        target.innerHTML = newValue;
+  
+        editIcon.style.color = "black";
+      }
+    }
+
+  };
 }
 
 function createTableFooter(col1) {
