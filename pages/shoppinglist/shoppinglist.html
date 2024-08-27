@@ -1,67 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/shoppinglist.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/shoppinglist.css" />
     <title>Lista de Compras</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <p>Shoppest</p>
-        <nav>
-          <ul>
-            <li><a href="../../index.html">Home</a></li>
-            <a href="#">Lista de Compras</a>
-            <li><a href="#">Testing</a></li>
-            <li><a href="#">Sobre Nós</a></li>
-            <li><a href="#">Testing</a></li>
-            <li><a href="#">Contato</a></li>
-          </ul>
-        </nav>
-  
+      <p>Shoppest</p>
+      <nav>
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <a href="#">Lista de Compras</a>
+          <li><a href="#">Testing</a></li>
+          <li><a href="#">Sobre Nós</a></li>
+          <li><a href="#">Testing</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <button>Sign in</button>
+        <button>Sign up</button>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
         <div>
-          <button>Sign in</button>
-          <button>Sign up</button>
+          <h1>Bem-Vindo ao Shoppest!</h1>
+          <p>
+            Faça sua lista de compras, aqui você pode colocar os nomes e
+            quantidades.
+            <br />
+            Quando Terminar sigua para a próxima página para adicionar os
+            preços.
+          </p>
         </div>
-      </header>
-      <main>
-          <section class="hero">
-           <div>
-            <h1>Bem-Vindo ao Shoppest!</h1>
-            <p>
-                Faça sua lista de compras, aqui você pode colocar os nomes e quantidades.
-                <br>
-                Quando Terminar sigua para a próxima página para adicionar os preços.
-            </p>
-           </div>
-           <img src="./images/shoppinglist.png" alt="lista de compras 3D">
-          </section>
+        <img src="./images/shoppinglist.png" alt="lista de compras 3D" />
+      </section>
 
-          <section class="conteiner"> 
-            <h2>Começe criando a sua Lista!</h2>
+      <section class="conteiner">
+        <h2>Começe criando a sua Lista!</h2>
 
-            <form id="form">
-                <div>
-                    <input type="text" name="item-name" id="item-name" placeholder="Nome">
-                    <input type="number" name="item-amount" id="item-amount" placeholder="Qtde.">
-                    <input type="submit" value="Adicionar" 
-                    class="button">
+        <form id="form">
+          <div>
+            <input
+              type="text"
+              name="item-name"
+              id="item-name"
+              placeholder="Nome"
+            />
+            <input
+              type="number"
+              name="item-amount"
+              id="item-amount"
+              placeholder="Qtde."
+            />
+            <input type="submit" value="Adicionar" class="button"  />
+          </div>
+        </form>
 
-                </div>
-            </form>
-
-                <table>
-                    <caption>Sua Lista</caption>
-                </table>
-
-           
-          </section>
-
-      </main>
-      <footer>
-      
-      </footer>
-      <script type="module" src="./src/shoppinglist.js"></script>
-</body>
+        <table>
+          <caption>
+            Sua Lista
+          </caption>
+        </table>
+      </section>
+    </main>
+    <footer></footer>
+    <script type="module" src="./src/shoppinglist.js"></script>
+  </body>
 </html>
