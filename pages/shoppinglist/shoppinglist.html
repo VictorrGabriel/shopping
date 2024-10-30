@@ -21,8 +21,8 @@
       </nav>
 
       <div>
-        <button>Sign in</button>
-        <button>Sign up</button>
+        <button class="sign-in-button">Sign in</button>
+        <button class="sign-up-button">Sign up</button>
       </div>
     </header>
     <main>
@@ -32,7 +32,7 @@
           <p>
             Faça sua lista de compras, aqui você pode colocar os nomes e
             quantidades.
-            <br />
+            <br/>
             Quando Terminar sigua para a próxima página para adicionar os
             preços.
           </p>
@@ -42,7 +42,6 @@
 
       <section class="conteiner">
         <h2>Começe criando a sua Lista!</h2>
-
         <form id="form">
           <div>
             <input
@@ -60,12 +59,16 @@
             <input type="submit" value="Adicionar" class="button"  />
           </div>
         </form>
+ <div class="table-div">
+   <table>
+     <caption>
+       Sua Lista
+     </caption>
+   </table>
 
-        <table>
-          <caption>
-            Sua Lista
-          </caption>
-        </table>
+   <button class="button savebutton" id="save-button">Salvar lista</button>
+
+ </div>
       </section>
     </main>
     <footer></footer>

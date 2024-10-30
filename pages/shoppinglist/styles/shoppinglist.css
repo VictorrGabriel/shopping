@@ -10,7 +10,9 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    color: #000;
+    color: #fff;
+    background: var(--bg-dark);
+    padding: .5rem;
 
     position: absolute;
     top: 0;
@@ -18,12 +20,44 @@ header{
     right: 0;
 }
 
+header > div{
+    display: flex;
+    justify-content: space-around;
+}
+
+header > div > button{
+    all: unset;
+    padding: .5rem;  
+    cursor: pointer; 
+}
+
+.sign-up-button{
+    order: 0;
+    background: var(--bg-light);
+    border-radius: 10px;
+    margin-right: 5px;
+
+    &:hover{
+        background-color:var(--primary-color) ;
+    }
+}
+
+
+.sign-in-button{
+    order: 1;
+    border-radius: 10px;
+    &:hover{
+        background-color: var(--primary-color);
+    }
+}
+
 nav{
+    padding-block: 0.5rem;
     ul{
       list-style: none;
       display: flex;
       flex-direction: row;
-      gap: 10px;
+      gap: 20px;
     }
   
     a{
@@ -40,6 +74,24 @@ main{
         line-height: 1.5rem;
         max-width: 400px;
     }
+}
+
+button{
+    all: unset;
+}
+
+.button{
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out ;
+}
+
+.button:hover{
+    background: var(--secondary-color);
+}
+
+.button:focus{
+    background: var(--secondary-color);
 }
 
 section.hero{
@@ -89,23 +141,13 @@ form  > div {
         width: 5rem;
     }
 
-    input.button{
-        border: 1px solid #000;
-        cursor: pointer;
-        transition: background-color .2s ease-in-out ;
-    }
+}
 
-    input.button:hover{
-        background: var(--secondary-color);
-    }
-
-    input.button:focus{
-        background: var(--secondary-color);
-    }
+.table-div{
+    align-self: center;
 }
 
 table{
-    align-self: center;
     width: 800px;
     border-collapse: separate;
     caption{
@@ -124,6 +166,13 @@ table{
         background-color: var(--bg-light);
     }
     
+}
+
+.savebutton{
+    width: 100px;
+    padding: .6rem;
+    text-align: center;
+    margin-top: 1.5rem;
 }
 
 

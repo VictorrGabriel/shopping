@@ -236,19 +236,15 @@ function editList(row) {
   }
 }
 
-function calculateTotalAmount(alterate = false) {
+function calculateTotalAmount() {
   const tbodyElement = document.querySelector("tbody");
   const AmountsElements = document.querySelectorAll(".col-amount");
   const totalAmountElement = document.getElementById("total-amount");
 
-  let totalValue = 0 /* Number(totalAmountElement.textContent); */
-  /* for (let trAmounts of tbodyElement.lastElementChild.children) {
-    if (!isNaN(trAmounts.textContent)) {
-      totalValue += Number(trAmounts.textContent);
-    }
-  } */
+  let totalValue = 0 
     for(let trAmounts of AmountsElements){
       totalValue += Number(trAmounts.innerText) 
     }
   totalAmountElement.textContent = totalValue;
 }
+
