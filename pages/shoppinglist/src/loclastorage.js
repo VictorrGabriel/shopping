@@ -20,19 +20,17 @@ export function x(list) {
   }
 
   if (y()) {
-    objectList.push({name: list.name, amount:list.amount});
-    localStorage.setItem("shoppingList", JSON.stringify(objectList));
+    objectList.push({ name: list.name, amount: list.amount });
+    localStorage.setItem('shoppingList', JSON.stringify(objectList));
   }
-
 }
 
-export function rebuildTable(cb1, cb2, cb3, tableElement ) {
-const shoppingList = JSON.parse(localStorage.getItem("shoppingList"));
+export function rebuildTable(cb1, cb2, cb3, tableElement) {
+  const shoppingList = JSON.parse(localStorage.getItem('shoppingList'));
 
-cb1("Nome", "Quantidade", "Opções de Edição", tableElement);
-for(const object of shoppingList){
-cb2(object.name, object.amount, tableElement);
-}
-cb3("Quantidade Total", tableElement);
-
+  cb1('Nome', 'Quantidade', 'Opções de Edição', tableElement);
+  for (const object of shoppingList) {
+    cb2(object.name, object.amount, tableElement);
+  }
+  cb3('Quantidade Total', tableElement);
 }
