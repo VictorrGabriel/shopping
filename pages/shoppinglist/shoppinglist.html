@@ -4,25 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/shoppinglist.css" />
+    <link rel="stylesheet" href="styles/mediaquery.css" />
     <title>Lista de Compras</title>
   </head>
   <body>
     <header>
-      <p>Shoppest</p>
-      <nav>
-        <ul>
-          <li><a href="../../index.html">Home</a></li>
-          <a href="#">Lista de Compras</a>
-          <li><a href="#">Testing</a></li>
-          <li><a href="#">Sobre Nós</a></li>
-          <li><a href="#">Testing</a></li>
-          <li><a href="#">Contato</a></li>
-        </ul>
-      </nav>
-
-      <div>
-        <button class="sign-in-button">Sign in</button>
-        <button class="sign-up-button">Sign up</button>
+      <div class="header-wrapper">
+        <div class="title-wrapper">
+          <ion-icon id="menu_button" name="menu-sharp" ></ion-icon>
+          <p>Shoppest</p>
+        </div>
+        <menu>
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <a href="#">Lista de Compras</a>
+            <li><a href="#">Testing</a></li>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Testing</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </menu>
+        <div class="sign-buttons-wrapper">
+          <button class="sign-in-button">Sign in</button>
+          <button class="sign-up-button">Sign up</button>
+        </div>
       </div>
     </header>
     <main>
@@ -32,12 +37,16 @@
           <p>
             Faça sua lista de compras, aqui você pode colocar os nomes e
             quantidades.
-            <br/>
+            <br />
             Quando Terminar sigua para a próxima página para adicionar os
             preços.
           </p>
         </div>
-        <img src="./images/shoppinglist.png" alt="lista de compras 3D" />
+        <img
+          class="image_hero"
+          src="./images/shoppinglist.png"
+          alt="lista de compras 3D"
+        />
       </section>
 
       <section class="conteiner">
@@ -48,30 +57,41 @@
               type="text"
               name="item-name"
               id="item-name"
+              class="filling_info"
               placeholder="Nome"
             />
             <input
               type="number"
               name="item-amount"
               id="item-amount"
+              class="filling_info"
               placeholder="Qtde."
             />
-            <input type="submit" value="Adicionar" class="button"  />
+            <input type="submit" value="Adicionar" class="button" />
           </div>
         </form>
- <div class="table-div">
-   <table>
-     <caption>
-       Sua Lista
-     </caption>
-   </table>
+        <div class="table-div">
+          <table>
+            <caption>
+              Sua Lista
+            </caption>
+          </table>
 
-   <button class="button savebutton" id="save-button">Salvar lista</button>
-
- </div>
+        </div>
+        <button class="button savebutton" id="save-button">
+          Salvar lista
+        </button>
       </section>
     </main>
     <footer></footer>
     <script type="module" src="./src/shoppinglist.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

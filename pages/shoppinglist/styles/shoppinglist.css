@@ -2,17 +2,21 @@
 
 @import url(../../../styles/base.css);
 
+body,
+html {
+  overflow-x: hidden !important;
+  display: flex;
+  flex-direction: column;
+}
+
 body{
     font-family: "Montserrat", sans-serif;
 }
 
 header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    color: #fff;
     background: var(--bg-dark);
-    padding: .5rem;
+    display: flex;
+    flex-direction: column;
 
     position: absolute;
     top: 0;
@@ -20,15 +24,35 @@ header{
     right: 0;
 }
 
-header > div{
+.header-wrapper{
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
+    color: #fff;
+    padding: .5rem;
+    align-self: center;
+
 }
 
-header > div > button{
+.header-wrapper > .title-wrapper{
+    width: 120px;
+}
+
+.header-wrapper > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: center;
+}
+
+.header-wrapper > div > button{
     all: unset;
     padding: .5rem;  
-    cursor: pointer; 
+    cursor: pointer;   
+}
+
+#menu_button{
+    display: none;
 }
 
 .sign-up-button{
@@ -51,8 +75,9 @@ header > div > button{
     }
 }
 
-nav{
+menu{
     padding-block: 0.5rem;
+    font-size: .8rem;
     ul{
       list-style: none;
       display: flex;
@@ -68,6 +93,8 @@ nav{
 
 main{
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
 
     p{
         font-size: .9rem;
