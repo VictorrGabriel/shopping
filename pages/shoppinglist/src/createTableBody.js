@@ -1,31 +1,6 @@
-export function createTableHead(col1, col2, col3, tableElement) {
-  if (tableElement.contains(document.querySelector('thead'))) {
-    return;
-  }
-  const theadElement = document.createElement('thead');
-  const trElement = document.createElement('tr');
-  const thNameElement = document.createElement('th');
-  const thAmountElement = document.createElement('th');
-  const thEditOptions = document.createElement('th');
-
-  tableElement.appendChild(theadElement);
-  theadElement.appendChild(trElement);
-  trElement.appendChild(thNameElement);
-  trElement.appendChild(thAmountElement);
-  trElement.appendChild(thEditOptions);
-
-  thNameElement.setAttribute('scope', 'col');
-  thAmountElement.setAttribute('scope', 'col');
-  thEditOptions.setAttribute('scope', 'col');
-  thNameElement.innerText = col1;
-  thAmountElement.innerText = col2;
-  thEditOptions.innerText = col3;
-}
-
 export function createTableBody(itemName, itemAmount, tableElement) {
-  let alternateMethod = () => {
-    return document.createElement('tbody');
-  };
+  let alternateMethod = document.createElement('tbody');
+
   try {
     if (itemName === '') {
       throw new Error('Nenhum item adicionado');
@@ -53,26 +28,25 @@ export function createTableBody(itemName, itemAmount, tableElement) {
         return;
       }
     }
-    alternateMethod = () => {
-      return document.querySelector('tbody');
-    };
+    alternateMethod = document.querySelector('tbody');
   }
 
-  const tbodyElement = alternateMethod();
+  const tbodyElement = alternateMethod; // alteriei o valor da variável ALTERNATEMETHOD de uma função anônima com o retorno do documet.method para apenas o document.method.
   const trElement = document.createElement('tr');
-  const tdNemeElement = document.createElement('td');
+  const tdNameElement = document.createElement('td');
   const tdAmountElement = document.createElement('td');
   const tdEditOptions = document.createElement('td');
 
   tableElement.appendChild(tbodyElement);
   tbodyElement.appendChild(trElement);
-  trElement.appendChild(tdNemeElement);
+  trElement.append(tdNameElement, tdAmountElement, tdEditOptions);
+  /*  trElement.appendChild(tdNameElement);
   trElement.appendChild(tdAmountElement);
-  trElement.appendChild(tdEditOptions);
+  trElement.appendChild(tdEditOptions); */
 
-  tdNemeElement.setAttribute('class', 'col-name');
+  tdNameElement.setAttribute('class', 'col-name');
   tdAmountElement.setAttribute('class', 'col-amount');
-  tdNemeElement.innerText = itemName;
+  tdNameElement.innerText = itemName;
   tdAmountElement.innerText = itemAmount;
 
   const spanDeleteElement = document.createElement('span');
@@ -113,35 +87,7 @@ export function createTableBody(itemName, itemAmount, tableElement) {
   }
 }
 
-export function createTableFoot(col1, tableElement) {
-  if (tableElement.contains(document.querySelector('tfoot'))) {
-    return;
-  }
-
-  const tfooterElement = document.createElement('tfoot');
-  const trElement = document.createElement('tr');
-  const thElement = document.createElement('th');
-  const tdElement = document.createElement('td');
-  const tdElementEmpty = document.createElement('td');
-
-  tableElement.appendChild(tfooterElement);
-  tfooterElement.appendChild(trElement);
-  trElement.appendChild(thElement);
-  trElement.appendChild(tdElement);
-  trElement.appendChild(tdElementEmpty);
-
-  let totalValue = 0;
-
-  for (let trAmounts of tableElement.children[2].children) {
-    totalValue += Number(trAmounts.children[1].textContent);
-  }
-
-  thElement.setAttribute('scope', 'row');
-  tdElement.setAttribute('id', 'total-amount');
-  thElement.innerText = col1;
-  tdElement.innerText = totalValue;
-  tdElementEmpty.innerText = '';
-}
+/* Funções auxiliares */
 
 function editList(row) {
   const itemName = row.children[0];

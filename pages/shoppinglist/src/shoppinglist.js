@@ -1,10 +1,14 @@
-import {
-  createTableHead,
-  createTableBody,
-  createTableFoot,
-} from './createTable.js';
+import { createTableHead } from './createTableHead.js';
+import { createTableBody } from './createTableBody.js';
+import { createTableFoot } from './createTableFoot.js';
 
-import { catchItems, x, objectList, rebuildTable } from './loclastorage.js';
+import {
+  catchItems,
+  updateToLocalstorage,
+  clearLocalstorage,
+  objectList,
+  rebuildTable,
+} from './loclastorage.js';
 
 const itemNameElement = document.getElementById('item-name');
 const itemAmountElement = document.getElementById('item-amount');
@@ -12,15 +16,16 @@ const tableElement = document.querySelector('table');
 
 const saveButtonElement = document.getElementById('save-button');
 document.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('shoppingList')) {
-    if (localStorage.getItem('shoppingList').length > 0) {
-      rebuildTable(
-        createTableHead,
-        createTableBody,
-        createTableFoot,
-        tableElement,
-      );
-    }
+  if (
+    localStorage.getItem('shoppingList') &&
+    localStorage.getItem('shoppingList').length > 0
+  ) {
+    rebuildTable(
+      createTableHead,
+      createTableBody,
+      createTableFoot,
+      tableElement,
+    );
   }
   const form = document.getElementById('form');
 
@@ -39,8 +44,22 @@ function addItems() {
 saveButtonElement.addEventListener('click', () => {
   const tbodyElement = document.querySelector('tbody');
   if (tbodyElement) {
+    console.log(tbodyElement.children);
+    try {
+      if (
+        tbodyElement.children.length === 0 ||
+        tbodyElement.children === null
+      ) {
+        clearLocalstorage('shoppingList');
+        throw new Error('Não há linhas na tabela');
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
     for (const rows of tbodyElement.children) {
-      x(catchItems(rows.children[0].innerText, rows.children[1].innerText));
+      updateToLocalstorage(
+        catchItems(rows.children[0].innerText, rows.children[1].innerText),
+      );
     }
     console.log(objectList);
 

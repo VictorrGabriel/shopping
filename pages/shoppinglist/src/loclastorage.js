@@ -9,8 +9,8 @@ export function catchItems(itemName, itemAmount) {
   return rowData;
 }
 
-export function x(list) {
-  function y() {
+export function updateToLocalstorage(list) {
+  function isInList() {
     const result = objectList.filter((objects) => objects.name === list.name);
     if (result != 0) {
       return false;
@@ -19,10 +19,29 @@ export function x(list) {
     return true;
   }
 
-  if (y()) {
+  if (isInList()) {
     objectList.push({ name: list.name, amount: list.amount });
     localStorage.setItem('shoppingList', JSON.stringify(objectList));
   }
+
+  const tbodyChildren = document.querySelector('tbody').children;
+  if(!isInList() && objectList.length > tbodyChildren.length){
+
+    for (let row in tbodyChildren){
+      const result = objectList.filter((objects) => objects.name !== row[0].innerText);
+      console.log(result);
+    }
+
+    let indexRemoveItem = objectList.indexOf(result); // remover o index da lista que está no localstorage
+
+    objectList.slice(indexRemoveItem, 1);
+    localStorage.setItem('shoppingList', JSON.stringify(objectList));
+    
+  }
+}
+
+export function clearLocalstorage(list){
+  localStorage.removeItem(list)
 }
 
 export function rebuildTable(cb1, cb2, cb3, tableElement) {
